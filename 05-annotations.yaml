@@ -1,0 +1,12 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: labels
+  annotations:
+    description: "This is a pod with annotations"
+    buildURL: "https://jenkins.com/expense/job/backend/21"
+    imageregistry: "https://hub.docker.com"
+spec:
+  containers:
+  - name: nginx
+    image: nginx
