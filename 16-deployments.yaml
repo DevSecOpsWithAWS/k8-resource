@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx
+  #labels for development resources
   labels:
     app: nginx
     tier: frontend
@@ -22,6 +23,23 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: devsecopswithaws/nginx:1.0.0
+        image: devsecopswithaws/deployment:1.0.0
         ports:
         - containerPort: 80
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  type: LoadBalancer
+  selector: # labels are used as selectors
+    app: nginx
+    tier: frontend
+    purpose: Deployment
+  ports:
+  - protocol: TCP
+    port: 80 # service port
+    targetPort: 80
+    nodePort: 30007
