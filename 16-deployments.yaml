@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: devsecopswithaws/deployment:1.0.0
+        image: devsecopswithaws/deployment:1.0.1
         ports:
         - containerPort: 80
 
