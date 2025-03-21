@@ -5,6 +5,12 @@ metadata:
 provisioner: efs.csi.aws.com
 parameters:
   provisioningMode: efs-ap
-  fileSystemId: fs-066db691a94802167
-  DirectoryPerms: "700"
+  fileSystemId: fs-066db691a94802167  # ✅ Ensure this is correct
+  directoryPerms: "700"
   basePath: "/expense"
+  gidRangeStart: "1000"
+  gidRangeEnd: "2000"
+mountOptions:
+  - tls
+reclaimPolicy: Retain
+volumeBindingMode: Immediate
