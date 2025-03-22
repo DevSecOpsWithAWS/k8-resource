@@ -4,7 +4,7 @@ metadata:
   name: efs-expense
 provisioner: efs.csi.aws.com
 parameters:
-  provisioningMode: efs-ap
+  provisioningMode: efs
   fileSystemId: fs-066db691a94802167  # ✅ Ensure this is correct
   directoryPerms: "700"
   basePath: "/expense"
@@ -13,4 +13,4 @@ parameters:
 mountOptions:
   - tls
 reclaimPolicy: Retain
-volumeBindingMode: Immediate
+volumeBindingMode: WaitForFirstConsumer
